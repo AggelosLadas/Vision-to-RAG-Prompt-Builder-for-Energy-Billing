@@ -1,39 +1,127 @@
 # Vision-to-RAG Prompt Builder for Energy Billing
 
-Our team's work on the special challenge by ΔΕΗ/PPC: Vision-to-RAG Prompt Builder for Energy Billing. 
+**Special Challenge by ΔΕΗ/PPC | ACE AI Hackathon 2026**
 
-## Vision-to-RAG Prompt Builder for Energy Billing
-**Special Challenge by ΔΕΗ/PPC | AI Hackathon by ACE 2026**
+# Team
+* **Aggelos Ladas**, Computer Engineer – [LinkedIn](https://www.linkedin.com/in/AggelosLadasDev) | [GitHub](https://github.com/AggelosLadas)
+* **Anastasia Andromida**, AI Developer – [LinkedIn](https://www.linkedin.com/in/anastasia-andromida-14ab7a227/) | [GitHub](https://github.com/anastasia230)
+* **Vasileios Kotronis**, Electrical and Computer Engineer – [LinkedIn](https://www.linkedin.com/in/vasileios-kotronis-998909344/) | [GitHub](https://github.com/ntua-el21432)
 
-Developed an AI system using OCR and Retrieval-Augmented Generation + Hybrid Solutions to analyze energy bills and provide automated insights for the ACE AI Hackathon 2026.
 
-![Screenshot of the Vision-to-RAG interface](data/IMG_20260309_171106.jpg)
+# Info
+An AI-powered system that combines OCR, Retrieval-Augmented Generation (RAG), and hybrid retrieval techniques to analyze energy bills and generate automated insights. Developed as part of the ΔΕΗ/PPC Special Challenge during the ACE AI Hackathon 2026.
 
-### Technologies Used
+![Vision-to-RAG Interface](data/IMG_20260309_171106.jpg)
+
+## Technologies
+
 * Python
 * LangChain
 * Streamlit
-* RAG
+* Retrieval-Augmented Generation (RAG)
 * Tesseract OCR
 * Azure AI Search
 * FastAPI
 
 ---
 
-# ΑΡΧΙΚΟΣ ΟΔΗΓΟΣ 
+# Getting Started
 
-1) Clone the repo
-2) Φτιαχτε ενα python virtual environment με: python -m venv venv
-3) Δειτε στο pyvenv.cfg μεσα στο venv folder οτι εχετε Python 3.12.6 γιατι χρησιμοποιουμε πολλες βιβλιοθηκες που μπορει να σπανε απο εκδοση σε εκδοση.
-4) Το script για να μπαινουμε στο environment ειναι: .\venv\Scripts\activate   η κατι τετοιο τελοσπαντων
-5) Καντε pip install -r requirements.txt για να κατεβουν οι βιβλιοθηκες στο virtual environment. Καντε το με καινουρια εκδοση του Pip για να μην εχουμε θεμα και με αυτο
-6) Επισησς φτιαχτε ενα .env αρχειο στο οποιο μεσα βαλτε τα απαιτουμενα env variables / api keys. 
-7) Τρεχτε python ingest.py το οποιο ουσιαστικα φτιαχνει το Knowledge_base στο οπιιο θα βασιστει το μοντελο για την απαντηση με RAG.
-8) Αν ολα πανε καλα αν τρεξετε streamlit run app.py --server.port 8888 θα αρχισει μπορειτε να δειτε το ντεμο.
+## 1. Clone the Repository
 
-# ΠΕΡΙΓΡΑΦΗ
+```bash
+git clone <repository-url>
+cd <repository-name>
+```
 
-1) Στον φακελο data/ θα εχουμε τα αρχεια με το customer database/warehouse
-2) Στον φακελο knowledge_base/ θα εχουμε καποια txt / pdf κλπ. απο τα οποια το script ingest.py που βρισκεται στο root του προτζεκτ θα δημιουργει το vector database στο azure deployed vector db.
-3) Το frontend και το flow της εφαρμογης ειναι στο app.py και χρησιμοποιει συναρτησεις απο τον φακελο utils/helpers.py.
-4) Στο api.py τα exposed api endpoints.
+## 2. Create a Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+## 3. Verify Python Version
+
+Open `venv/pyvenv.cfg` and ensure the environment is using **Python 3.12.6**.
+
+> The project depends on several libraries that may behave differently across Python versions, so using the recommended version is strongly advised.
+
+## 4. Activate the Environment
+
+Windows:
+
+```bash
+.\venv\Scripts\activate
+```
+
+Linux/macOS:
+
+```bash
+source venv/bin/activate
+```
+
+## 5. Install Dependencies
+
+Make sure you are using an up-to-date version of pip:
+
+```bash
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+## 6. Configure Environment Variables
+
+Create a `.env` file in the project root and add the required API keys and environment variables.
+
+## 7. Build the Knowledge Base
+
+Run the ingestion pipeline:
+
+```bash
+python ingest.py
+```
+
+This process creates and populates the vector database used by the RAG pipeline.
+
+## 8. Launch the Application
+
+```bash
+streamlit run app.py --server.port 8888
+```
+
+If everything is configured correctly, the demo interface should now be available locally.
+
+---
+
+# Project Structure
+
+### `data/`
+
+Contains source datasets, customer information, and billing-related documents used by the system.
+
+### `knowledge_base/`
+
+Stores PDFs, text files, and reference material that are processed by the ingestion pipeline and indexed into the vector database.
+
+### `ingest.py`
+
+Builds and updates the knowledge base by processing documents and generating vector embeddings.
+
+### `app.py`
+
+Main Streamlit application containing the user interface and overall workflow.
+
+### `utils/helpers.py`
+
+Utility functions and helper methods used throughout the application.
+
+### `api.py`
+
+Contains the exposed API endpoints for external integrations and service communication.
+
+---
+
+# Team
+
+Created for the ACE AI Hackathon 2026.
+
